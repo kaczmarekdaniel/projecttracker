@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import AddNote from "./components/AddNote";
 import { motion } from "framer-motion";
+import Note from "./components/Note";
 
 type Note = {
     id: string;
@@ -31,13 +32,15 @@ const Notes = () => {
         console.log(notes);
     }, [notes]);
 
+   
+
     return (
         <div className="h-full flex items-start gap-16 p-24">
             <AddNote addNote={addNote} />
 
             <div className="flex flex-col items-start gap-12 w-full h-auto">
                 <h1 className="text-2xl">Notes</h1>
-                <div className="flex items-start justify-start flex-row flex-wrap gap-4 w-full h-full">
+                <div className="flex items-start justify-start flex-row flex-wrap gap-4 w-full h-full relative">
                     {showPlaceholder && (
                         <motion.div
                             className="w-48 h-48 bg-foreground-muted rounded-md"
@@ -47,16 +50,7 @@ const Notes = () => {
                         />
                     )}
                     {notes.map((note) => (
-                        <motion.div
-                            key={note.id}
-                            className={`${note.color} w-48 h-48 rounded-md`}
-                            initial={{ x: 40, y: 10, marginRight: 30}}
-                            animate={{ x: 0, y: 0, marginRight: 0 }}
-                            transition={{ type: 'spring', duration: .3,  stiffness: 260 }}
-                            
-                        >
-                            {note.title}
-                        </motion.div>
+                          <Note key={note.id} note={note} />
                     ))}
 
                     {notes.length === 0 && (

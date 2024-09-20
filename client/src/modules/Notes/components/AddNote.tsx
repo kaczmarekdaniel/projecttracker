@@ -53,18 +53,19 @@ const AddNote: React.FC<AddNoteProps> = ({ addNote }) => {
         {
             x: 118,
             y: 10,
-            color: "bg-red-600",
+            color: "bg-red-200",
         },
         {
             x: 118,
             y: -35,
-            color: "bg-purple-600",
+            color: "bg-purple-200",
         },
         {
             x: 118,
             y: -60,
-            color: "bg-green-600",
+            color: "bg-blue-200",
         },
+        
     ];
     const [dots, setDots] = React.useState<AddNoteBtn[]>(initialDots);
 
@@ -77,11 +78,11 @@ const AddNote: React.FC<AddNoteProps> = ({ addNote }) => {
             <button className="rounded-full w-8 h-8 flex items-center justify-center bg-foreground">
                 <PlusIcon className="text-white" />
             </button>
-            <ul className="flex items-center justify-center flex-col gap-3">
+            <ul className="flex items-center justify-center flex-col gap-3 relative">
                 {dots.map((dot, index) => (
                     <li key={index}>
                         <ClickAnimationComponent
-                            addNote={() => addNote("test", dot.color)}
+                            addNote={() => addNote("New Note", dot.color)}
                             endPoint={dot}
                             className={`w-6 h-6 ${dot.color} rounded-full`}
                         />
