@@ -7,7 +7,6 @@ export const useProjectileMotion = (
     start: Point,
     peak: Point,
     end: Point,
-    duration = 2
 ): [AnimationControls, () => void] => {
     const controls = useAnimation();
 

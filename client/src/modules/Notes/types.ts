@@ -6,5 +6,5 @@ export type Point = {
 export type AddNoteBtn = {
     x: number;
     y: number;
-    color?: string;
+    color: string;
 };
