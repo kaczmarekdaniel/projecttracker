@@ -4,6 +4,13 @@ import { AnimatePresence, motion, LayoutGroup } from "framer-motion";
 import Note from "./components/Note";
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
 import drawnIcon from "../../assets/arrow-left.svg";
+import {
+    MDXEditor,
+    UndoRedo,
+    BoldItalicUnderlineToggles,
+    toolbarPlugin,
+} from "@mdxeditor/editor";
+import "@mdxeditor/editor/style.css";
 
 export type TNote = {
     id: string;
@@ -11,17 +18,34 @@ export type TNote = {
     color: string;
 };
 
+const defaultSnippetContent = `
+export default function App() {
+return (
+<div className="App">
+<h1>Hello CodeSandbox</h1>
+<h2>Start editing to see some magic happen!</h2>
+</div>
+);
+}
+`.trim();
+
 const Notes = () => {
     const [notes, setNotes] = useState<TNote[]>([]);
     const [showPlaceholder, setShowPlaceholder] = useState(false);
     const [activeNote, setActiveNote] = useState<TNote | null>(null);
+    const markdown = "";
 
     useEffect(() => {
         console.log("notes", notes);
     }, [notes]);
 
+    useEffect(() => {
+        console.log("notes", notes);
+    }, [markdown]);
+
     const addNote = (title: string, color: string) => {
         setShowPlaceholder(true);
+
         setTimeout(() => {
             setNotes((prevNotes) => [
                 {
@@ -76,28 +100,51 @@ const Notes = () => {
 
                         <AnimatePresence>
                             {activeNote && (
-                                <motion.div
-                                    layoutId={activeNote.id}
-                                    className={`${activeNote.color} rounded-lg w-full h-[60vh] p-6 absolute top-0 left-0 z-50 flex flex-col items-start justify-start gap-4`}
-                                    initial={{ opacity: 1 }}
-                                    transition={{
-                                        type: "spring",
-                                        stiffness: 260,
-                                        damping: 20,
-                                    }}
-                                >
-                                    <button onClick={() => setActiveNote(null)}>
-                                        <ArrowLeftIcon className="w-6 h-6" />
-                                    </button>
-
-                                    <motion.h2
-                                        className="text-black font-semibold text-2xl"
-                                        layout={false}
-                                        layoutId={`title-container-${activeNote.id}`}
+                                <>
+                                    <motion.div
+                                        layoutId={activeNote.id}
+                                        className={`${activeNote.color} rounded-lg w-full h-[60vh] p-6 absolute top-0 left-0 z-50 flex flex-col items-start justify-start gap-4`}
+                                        initial={{ opacity: 1 }}
+                                        transition={{
+                                            type: "spring",
+                                            stiffness: 260,
+                                            damping: 20,
+                                        }}
                                     >
-                                        New Note
-                                    </motion.h2>
-                                </motion.div>
+                                        <button
+                                            onClick={() => setActiveNote(null)}
+                                        >
+                                            <ArrowLeftIcon className="w-6 h-6" />
+                                        </button>
+
+                                        <motion.h2
+                                            className="text-black font-semibold text-2xl"
+                                            layout={false}
+                                            layoutId={`title-container-${activeNote.id}`}
+                                        >
+                                            New Note
+                                        </motion.h2>
+
+                                        <MDXEditor
+                                            className="w-full h-full text-left rounded-md bg-white/30"
+                                            markdown={markdown}
+                                            onChange={(value) =>
+                                                console.log(value)
+                                            }
+                                            plugins={[
+                                                toolbarPlugin({
+                                                    toolbarContents: () => (
+                                                        <>
+                                                            {" "}
+                                                            <UndoRedo />
+                                                            <BoldItalicUnderlineToggles />
+                                                        </>
+                                                    ),
+                                                }),
+                                            ]}
+                                        />
+                                    </motion.div>
+                                </>
                             )}
                         </AnimatePresence>
 
@@ -106,21 +153,24 @@ const Notes = () => {
                                 <motion.div
                                     className="absolute w-36 h-10 bg-background z-20"
                                     animate={{ width: 0 }}
-                                    transition={{ duration: .3, delay: .3 }}
+                                    transition={{ duration: 0.3, delay: 0.3 }}
                                 />
                                 <img src={drawnIcon} className="w-32 z-10" />
 
-                                <motion.p 
+                                <motion.p
                                     className="font-drawn text-foreground-muted ml-24 mt-0 font-bold text-2xl text-right"
-                                    initial={{opacity: 0}}
-                                    animate={{opacity: 1}}
-                                    transition={{ duration: .4 }}
-                                    >
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ duration: 0.4 }}
+                                >
                                     Add your <br /> first note here!
                                 </motion.p>
                             </div>
                         )}
                     </div>
+                    {activeNote && (
+                        <div onClick={() => setActiveNote(null)} className="absolute top-0 left-0 w-full h-full"></div>
+                    )}
                 </div>
             </div>
         </LayoutGroup>

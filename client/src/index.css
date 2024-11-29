@@ -69,6 +69,10 @@
     }
 }
 
+.mdxeditor-toolbar _toolbarRoot_uazmk_160 {
+    border-radius: 0 !important;
+}
+
 @layer base {
     * {
         @apply border-border;
