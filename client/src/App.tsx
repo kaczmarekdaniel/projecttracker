@@ -12,9 +12,10 @@ function App() {
             </div> */}
 
             <PrimaryNav />
-            <main className=" row-start-1 row-end-9 col-start-2 col-span-11 rounded-md">
+            <main className="pl-56 row-start-1 row-end-9 col-start-2 col-span-11 rounded-md">
                 <Routes>
                     <Route path="/" element={<Home />} />
+                    <Route path="/tasks" element={<p>tasks</p>} />
                     <Route path="/notes" element={<Notes />} />
                     <Route path="/settings" element={<p>settings</p>} />
                 </Routes>

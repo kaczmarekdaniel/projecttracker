@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Young+Serif&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -73,6 +74,10 @@
     border-radius: 0 !important;
 }
 
+.NavigationMenu > div {
+    position: initial !important;
+}
+
 @layer base {
     * {
         @apply border-border;
@@ -87,4 +92,12 @@
       font-weight: normal;
       font-style: normal;
     }
+
+    .font-classic {
+        font-family: "Young Serif", serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    
 }
