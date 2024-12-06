@@ -37,9 +37,7 @@ const links: Link[] = [
         id: 1,
         href: "/",
         label: "Home",
-        icon: (
-            <DashboardIcon className="w-4 h-4 z-20" />
-        ),
+        icon: <DashboardIcon className="w-4 h-4 z-20" />,
         title: "dashboard",
     },
     {
@@ -60,9 +58,11 @@ const links: Link[] = [
         icon: <FileTextIcon className="w-5 h-5 z-20" />,
         title: "notes",
     },
+];
 
+const settings: Link[] = [
     {
-        id: 4,
+        id: 1,
         href: "/settings",
         label: "Settings",
         icon: <GearIcon className="w-5 h-5 z-20" />,
@@ -81,6 +81,14 @@ const PrimaryNav = () => {
                 </div>
                 <ul className="row-span-6 row-start-3 flex flex-col gap-3">
                     {links.map((link) => (
+                        <NavigationMenuItem key={link.href}>
+                            <NavigationLink {...link} />
+                        </NavigationMenuItem>
+                    ))}
+                </ul>
+
+                <ul className="row-span-3 row-start-11 flex flex-col gap-3 border-t pt-6 ">
+                    {settings.map((link) => (
                         <NavigationMenuItem key={link.href}>
                             <NavigationLink {...link} />
                         </NavigationMenuItem>
@@ -105,7 +113,11 @@ const NavigationLink = (link: Link) => {
     return (
         <Link
             aria-label={link.label}
-            className={cn(navigationMenuTriggerStyle(), " flex flex-row gap-3", active ? "" : "opacity-80")}
+            className={cn(
+                navigationMenuTriggerStyle(),
+                " flex flex-row gap-3",
+                active ? "" : "opacity-80"
+            )}
             to={link.href}
         >
             <span className={`${active ? "" : ""} z-40`}>{link.icon}</span>
