@@ -1,15 +1,13 @@
-import "./App.css";
 import PrimaryNav from "./components/PrimaryNav";
 import { Routes, Route } from "react-router-dom";
 import Home from "./screens/Home/Home";
 import Notes from "./screens/Notes/Notes";
 import Tasks from "./screens/Tasks/Tasks";
-import { useCallback, useEffect } from "react";
 import { InteractionHandler } from "./hooks/InteractionHandler/InteractionHandler";
 
 function App() {
 
-   const {test} =  InteractionHandler();
+   const {registerShortcut} =  InteractionHandler();
 
     
     return (

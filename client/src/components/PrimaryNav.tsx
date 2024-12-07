@@ -21,7 +21,7 @@ import {
     CheckboxIcon,
     DashboardIcon,
 } from "@radix-ui/react-icons";
-import { cn } from "@/lib/utils.ts";
+import { cn } from "../lib/utils.ts";
 
 type Link = {
     id: number;

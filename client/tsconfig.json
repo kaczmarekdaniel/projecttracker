@@ -1,13 +1,28 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
   "compilerOptions": {
-    "baseUrl": ".",
+    "target": "ES2015",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ES2015",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
+    "types": ["@testing-library/jest-dom"],
+    "baseUrl": ".", // Base directory for resolving non-relative module imports
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["src/*"] // Alias `@/` to `src/`
     }
-  }
+  },
+  "exclude": ["node_modules"],
+  "include": ["src", "./jest.d.ts", "setupTests.ts", "config"]
+  
 }
