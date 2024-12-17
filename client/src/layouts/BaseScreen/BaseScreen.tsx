@@ -1,13 +1,15 @@
 import Header from "@/components/Header";
 import React from "react";
 
-const BaseScreen = ({children}) => {
-    return (
-        <>
-            <Header />
-            <main>{children}</main>
-        </>
-    );
+const BaseScreen = ({ children, styles }) => {
+  return (
+    <>
+      <Header />
+      <div className={styles}>
+        {children}
+      </div>
+    </>
+  );
 };
 
 export default BaseScreen;
