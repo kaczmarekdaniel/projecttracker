@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1733517646039" clover="3.2.0">
-  <project timestamp="1733517646039" name="All files">
-    <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1" elements="5" coveredelements="5" complexity="0" loc="4" ncloc="4" packages="1" files="1" classes="1"/>
-    <file name="Header.tsx" path="/Users/daniel/Documents/projects/project-tracker/client/src/components/Header.tsx">
-      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <line num="1" count="1" type="stmt"/>
-      <line num="3" count="1" type="stmt"/>
-      <line num="4" count="1" type="stmt"/>
-      <line num="16" count="1" type="stmt"/>
+<coverage generated="1734471413761" clover="3.2.0">
+  <project timestamp="1734471413761" name="All files">
+    <metrics statements="11" coveredstatements="4" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="1" elements="14" coveredelements="5" complexity="0" loc="11" ncloc="11" packages="1" files="1" classes="1"/>
+    <file name="BaseHttpService.ts" path="/Users/daniel/Documents/projects/project-tracker/client/src/interfaces/API/BaseHttpService.ts">
+      <metrics statements="11" coveredstatements="4" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <line num="4" count="0" type="stmt"/>
+      <line num="7" count="0" type="stmt"/>
+      <line num="8" count="0" type="stmt"/>
+      <line num="9" count="0" type="stmt"/>
+      <line num="10" count="0" type="stmt"/>
+      <line num="11" count="0" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="17" count="1" type="stmt"/>
+      <line num="22" count="1" type="cond" truecount="0" falsecount="1"/>
+      <line num="23" count="0" type="stmt"/>
+      <line num="26" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>

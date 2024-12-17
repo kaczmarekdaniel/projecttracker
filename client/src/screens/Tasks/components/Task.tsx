@@ -34,7 +34,7 @@ export const Task = () => {
             description
           </div>
           <div className="col-span-3 rounded-md bg-secondary flex flex-col p-4 gap-2">
-            <div className="items-top flex space-x-2 w-auto border border-orange-600 shadow-sm hover:shadow-md transition-shadow duration-400 bg-white/60 rounded-md p-2">
+            <div className="items-top flex space-x-2 w-auto border  shadow-sm hover:shadow-md transition-shadow duration-400 bg-white/60 rounded-md p-2">
               <Checkbox id="terms1" />
               <div className="flex flex-row items-center gap-2 leading-none">
                 <label
@@ -48,7 +48,7 @@ export const Task = () => {
 
               </div>
             </div>
-            <div className="items-top flex border border-green-600 space-x-2 w-auto bg-white/60 rounded-md p-2 ">
+            <div className="items-top flex border  space-x-2 w-auto bg-white/60 rounded-md p-2 ">
               <Checkbox id="terms1" />
               <div className="grid w-auto gap-1.5 leading-none cursor-pointer">
                 <label
