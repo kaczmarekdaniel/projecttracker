@@ -1,8 +1,9 @@
 import { ListIcon } from "lucide-react";
 import { Progress } from "@/components/ui/progress.tsx";
-import { DotsHorizontalIcon } from "@radix-ui/react-icons";
+import { DotsHorizontalIcon, PlusIcon } from "@radix-ui/react-icons";
 import { useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox.tsx";
+import { AdvancedInput } from "@/components/AdvancedInput.tsx";
 export const Task = () => {
   const [showSubtasks, setShowSubtasks] = useState(true);
 
@@ -13,6 +14,9 @@ export const Task = () => {
         <p className="text-xs font-semibold opacity-80">Chatbot</p>
       </div>
       <div className="col-span-3 flex flex-row items-center justify-start gap-2 ">
+        <button className="w-auto h-7 bg-offwhite flex items-center justify-center rounded-sm gap-1 px-3 border">
+          <PlusIcon className="w-3" />
+        </button>
         <button onClick={() => setShowSubtasks(!showSubtasks)}
                 className="w-auto h-7 bg-offwhite flex items-center justify-center rounded-sm gap-1 px-3 border">
           <ListIcon className="w-3" />
@@ -34,7 +38,12 @@ export const Task = () => {
             description
           </div>
           <div className="col-span-3 rounded-md bg-secondary flex flex-col p-4 gap-2">
-            <div className="items-top flex space-x-2 w-auto border  shadow-sm hover:shadow-md transition-shadow duration-400 bg-white/60 rounded-md p-2">
+            <div
+              className="items-top flex space-x-2 w-auto border  shadow-sm hover:shadow-md transition-shadow duration-400 bg-white/60 rounded-md p-2">
+              <AdvancedInput />
+            </div>
+            <div
+              className="items-top flex space-x-2 w-auto border  shadow-sm hover:shadow-md transition-shadow duration-400 bg-white/60 rounded-md p-2">
               <Checkbox id="terms1" />
               <div className="flex flex-row items-center gap-2 leading-none">
                 <label
